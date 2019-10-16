@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+        .inp-1,.inp-2,.select1{
+            display: block;
+        }
+        </style>
+</head>
+
+<body>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+        function createElement(element, classname, text, atr, atrtext) {
+            let elem = document.createElement(element);
+            elem.className = classname;
+            elem.innerText = text;
+            elem.setAttribute(atr, atrtext);
+            document.body.appendChild(elem);
+        }
+        function createElement2(element, classname, text, atr, atrtext, parent) {
+            let elem = document.createElement(element);
+            elem.classname = classname;
+            elem.innerText = text;
+            elem.setAttribute(atr, atrtext);
+            document.getElementsByClassName(parent)[0].appendChild(elem);
+
+        }
+
+        createElement('label', null, 'Birinci ədədi daxil edin', 'for', 'inp-1');
+        createElement('input', 'inp-1', null, 'id', 'inp-1');
+        createElement('select', 'select1', null, null, null);
+        createElement2('option', null, '+', 'value', '+', 'select1');
+        createElement2('option', null, '-', 'value', '-', 'select1');
+        createElement2('option', null, '*', 'value', '*', 'select1');
+        createElement2('option', null, '/', 'value', '/', 'select1');
+        createElement('label', null, 'Ikinci ədədi daxil edin', 'for', 'inp-2');
+        createElement('input', 'inp-2', null, 'id', 'inp-2');
+        createElement('button', 'btn btn-success', 'Click me', null, null);
+        $('.btn').click(function () {
+            let aa = $('.select1').val()
+            let inputValue1 = parseInt($('.inp-1').val());
+            let inputValue2 = parseInt($('.inp-2').val());
+            let result = 0;
+            switch (aa) {
+                case '+':
+                    result = inputValue1 + inputValue2;
+                    break;
+                case '-':
+                    result = inputValue1 - inputValue2;
+                    break;
+                case '*':
+                    result = inputValue1 * inputValue2;
+                    break;
+                case '/':
+                    result = inputValue1 / inputValue2;
+                    break;
+            }
+            alert(result);
+        })
+
+    </script>
+</body>
+
+</html>
