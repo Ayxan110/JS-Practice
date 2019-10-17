@@ -10,12 +10,19 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="10.css">
 </head>
 
 <body>
-    <div style="height: 100px; width: 100px; background-color: greenyellow" class="element"></div>
-    <button style="height: 40px; width: 100px;" class="btn btn-success">Click me</div>
+    <button type="button" class="btn btn-primary">Button1</button>
+    <button type="button" class="btn btn-secondary">Button2</button>
+    <button type="button" class="btn btn-success">Button3</button>
+    <button type="button" class="btn btn-danger">Button4</button>
+    <button type="button" class="btn btn-warning">Button5</button>
+    <button type="button" class="btn btn-info">Button6</button>
+    <button type="button" class="btn btn-light">Button7</button>
+    <button type="button" class="btn btn-dark">Button8</button>
+    <button style="background-color: aquamarine" type="button" class="btn">Button9</button>
+    <button style="background-color: yellow" type="button" class="btn">Button10</button>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -27,15 +34,16 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
+
     <script>
-        $(document).ready(function () {
-                $('.btn').click(function(){
-                    $('.element').css('display','none');
-                    setTimeout(function(){
-                        $('.element').css({'display':'block','margin-left':'500px'});
-                    }, 3000)
-                })
-        })
+        let buttons = $("button");
+        for (let f in buttons) {
+            $(buttons[f]).click(function () {
+                let num = parseInt(f);
+                alert(num + 1);
+            })
+        }
+
     </script>
 </body>
 

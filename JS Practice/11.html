@@ -10,12 +10,10 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="10.css">
 </head>
 
 <body>
     <div style="height: 100px; width: 100px; background-color: greenyellow" class="element"></div>
-    <button style="height: 40px; width: 100px;" class="btn btn-success">Click me</div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -26,16 +24,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
     <script>
         $(document).ready(function () {
-                $('.btn').click(function(){
-                    $('.element').css('display','none');
-                    setTimeout(function(){
-                        $('.element').css({'display':'block','margin-left':'500px'});
-                    }, 3000)
-                })
+            let interval = setInterval(() => {
+                let element = document.querySelector('.element');
+                let en = parseInt(element.style.width);
+                let uzun = parseInt(element.style.height);
+                en += 10;
+                uzun += 10;
+                element.style.width = `${en}px`;
+                element.style.height = `${uzun}px`;
+                if(en==200 && uzun==200){
+                    clearInterval(interval);
+                }
+            }, 2000);
         })
+
     </script>
 </body>
 

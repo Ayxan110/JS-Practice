@@ -1,0 +1,29 @@
+*{
+    list-style: none;
+}
+.input-part{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+.btn-part1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    height: 40px;
+}
+.input-part input{
+    height: 35px;
+}
+.container{
+    margin-top: 50px;
+}
+.row{
+    background-color: orange;
+    height: 200px;
+}
+.btn-part{
+    border-right: 1px solid black;
+}
