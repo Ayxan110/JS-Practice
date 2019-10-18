@@ -1,0 +1,11 @@
+.inputs{
+    height: 25em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+.nav-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
