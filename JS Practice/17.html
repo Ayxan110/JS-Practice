@@ -12,17 +12,18 @@
 </head>
 
 <body>
-    <div class="main">
+    <div class="container">
         <div class="row">
-            <div class="inputs col-md-6">
-                <input type="text">
-                <input type="text">
+            <div class="inputs col-md-6" style="position: relative;">
+                <input id="element" type="text">
+                <input id="text" type="text">
+                <button class="btn btn-success">Click me</button>
             </div>
             <div class="nav-bar col-md-6">
-                <ul>
+                <ul class="navv">
                     <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
+                    <li id="as" style="padding-bottom: 0;">a</li>
+                    <li id="sa" style="padding-top: 0;">a</li>
                     <li>a</li>
                 </ul>
             </div>
@@ -38,15 +39,50 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script>
-        $(document).ready(function () {
-            $('.btn').click(function () {
-                let element = $('#element').val();
-                let text = $('#text').val();
-                let elem = document.createElement(element);
+        let istrue = true;
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementsByClassName('btn')[0].addEventListener('click', function () {
+                let element = document.getElementById('element').value;
+                let text = document.getElementById('text').value;
+                let elem = document.createElement(`${element}`);
                 elem.innerText = text;
-                $(".nav-bar").append(elem);
+                elem.style.position = 'absolute';
+                document.getElementsByClassName('inputs')[0].appendChild(elem);
+                let interval = setInterval(() => {
+                    let mb = parseInt(getComputedStyle(elem).bottom);
+                    let ml = parseInt(getComputedStyle(elem).left);
+                    if (istrue) {
+                        mb += 5;
+                        elem.style.bottom = `${mb}px`;
+                    }
+                    if (mb == 390) {
+                        istrue = false;
+                    }
+                    if (!istrue) {
+                        ml += 5;
+                        elem.style.left = `${ml}px`;
+                    }
+
+                    if (ml > 849) {
+                        clearInterval(interval);
+                    }
+                }, 10);
+
+                setTimeout(function () {
+                    let as = document.getElementById('as');
+                    let mt = parseInt(as.style.paddingBottom);
+                    mt += 5;
+                    as.style.paddingBottom = `${mt}px`
+                    setTimeout(function () {
+                        let sa = document.getElementById('sa');
+                        let mq = parseInt(sa.style.paddingTop);
+                        mq += 5;
+                        sa.style.paddingTop= `${mq}px`
+                    })
+
+                }, 2000)
             })
-        })
+        })                            
     </script>
 </body>
 
